@@ -1,22 +1,14 @@
 class PicturesController < ApplicationController
   def index
-  end
-
-  def new
+    @pictures = Picture.all
   end
 
   def create
+    @picture = Picture.create(pictures_params)
   end
+private
 
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def delete
+  def pictures_params
+    params.require(:picture).permit(:title, :caption, :author, :user_id)
   end
 end
