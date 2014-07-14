@@ -1,0 +1,7 @@
+<hr>
+<h1><%= @picture.title %></h1>
+<%= link_to '//Edit', edit_picture_path %>
+<div class="image-show">
+  <%= image_tag @picture.url %>
+</div>
+<p><%= @picture.caption %> // <%= @picture.author %></p>

@@ -1,27 +1,3 @@
 <h1>Create a Picture!</h1>
 <hr>
-<% if @picture.errors.any? %>
-  <div class="error-explanation">
-    <h2>There were <%= pluralize(@picture.errors.count, "error") %> that prevented your picture from being saved!</h2>
-    <div id="errors">
-      <ul>
-        <% @picture.errors.each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-<% else %>
-  <%= form_for @picture do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %></br>
-
-    <%= f.label :author %>
-    <%= f.text_field :author %></br>
-
-    <%= f.label :caption %>
-    <%= f.text_area :caption %></br>
-
-    <%= f.submit %>
-  <% end %>
-<% end %>
+<%= render 'new_form' %>

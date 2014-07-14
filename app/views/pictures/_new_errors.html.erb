@@ -1,0 +1,9 @@
+  <h2>There were <%= pluralize(@picture.errors.count, "error") %> that prevented your picture from being saved!</h2>
+    <div id="errors">
+      <ul>
+        <% @picture.errors.each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>

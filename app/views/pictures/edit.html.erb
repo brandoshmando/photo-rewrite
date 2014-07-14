@@ -1,0 +1,7 @@
+<h1><%= @picture.title %></h1>
+<div class="image-show">
+  <%= image_tag @picture.url %>
+</div>
+<%= link_to '//Delete', @picture, method: :delete, :data => {confirm: "Are you sure you want to delete this picture?"} %>
+<hr>
+<%= render 'new_form' %>

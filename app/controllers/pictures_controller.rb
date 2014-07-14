@@ -16,6 +16,32 @@ class PicturesController < ApplicationController
       flash.now[:alert] = "Your picture was not created..."
     end
   end
+
+  def show
+    @picture = Picture.find(params[:id])
+  end
+
+  def edit
+    @picture = Picture.find(params[:id])
+  end
+
+  def update
+    @picture = Picture.find(params[:id])
+
+    if @picture.update(pictures_params)
+      redirect_to picture_path(@picture), notice: "Your picture was successfully updated!"
+    else
+      flash.now[:alert] = "Your picture was not updated..."
+      render @picture
+    end
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to root_path
+    flash.now[:alert] = "Your picture was removed..."
+  end
 private
 
   def pictures_params
